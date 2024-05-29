@@ -5,19 +5,12 @@ import java.awt.event.ActionListener;
 
 import Modelo.PiedraPapelTijera;
 import Modelo.Opciones;
-//import vista. ; ----------------------------------------------------------
-
 
 public class controlador implements ActionListener {
+    PiedraPapelTijera juego;
 
-    PiedraPapelTijera Juego;
-    //Vista ---------------------------------------------------------------
-
-    public controlador(PiedraPapelTijera Juego) {
-
-        this.Juego = Juego;
-        //this.Vista = Vista; ----------------------------------------------------
-        
+    public controlador(PiedraPapelTijera juego) {
+        this.juego = juego;
     }
 
     @Override
@@ -26,27 +19,22 @@ public class controlador implements ActionListener {
 
         switch (command) {
             case "PIEDRA":
-                Juego.setOpcUser(Opciones.PIEDRA);
+                juego.setOpcUser(Opciones.PIEDRA);
                 break;
             case "PAPEL":
-                Juego.setOpcUser(Opciones.PAPEL);
+                juego.setOpcUser(Opciones.PAPEL);
                 break;
             case "TIJERA":
-                Juego.setOpcUser(Opciones.TIJERA);
+                juego.setOpcUser(Opciones.TIJERA);
                 break;
             case "JUGAR":
-                Juego.setOpcMachine();
-                Opciones opcUser = Juego.getOpcUser();
-                Opciones opcMachine = Juego.getOpcMachine();
-                String resultado = Juego.jugar(opcUser, opcMachine);
-                //vista.mostrarResultado(opcUser, opcMachine, resultado); ---------------------------------------
+                juego.setOpcMachine();
+                Opciones opcUser = juego.getOpcUser();
+                Opciones opcMachine = juego.getOpcMachine();
+                String resultado = juego.jugar(opcUser, opcMachine);
                 break;
             default:
                 break;
         }
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-
-    
 }
